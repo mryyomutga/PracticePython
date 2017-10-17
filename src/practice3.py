@@ -1,4 +1,5 @@
 # リストの操作
+# リスト : list = [, , ...]
 
 fruits = ["apple", "orange", "banana"]
 print(fruits[0])    # apple
