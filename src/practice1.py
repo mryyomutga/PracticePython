@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 # 基本的な変数・数値の操作
 # コメントは`#`を付ける
 print("Hello World")
