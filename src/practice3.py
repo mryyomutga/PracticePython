@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 # リストの操作
 # リスト : list = [, , ...]
+# 2017/10/18 削除・挿入・ソートの追加
 
 fruits = ["apple", "orange", "banana"]
 print(fruits[0])    # apple
@@ -74,5 +75,74 @@ print()
 # 要素の削除 del
 sub1 = ["数学", "国語", "英語"]
 print(sub1)
-del sub1[1] # 指定した場所の要素を削除
+# 指定した場所の要素を削除
+# 先頭、、末尾は 0, -1
+del sub1[1]
 print(sub1)
+print()
+
+# remove
+l = ["a", "b", "c", "d", "c"]
+l.remove("a")   # aを削除
+print(l)
+l.remove("c")   # 先頭のcを削除
+print(l)
+print()
+
+# pop
+# 引数なしの場合、末尾のデータを取り出す
+l = ["a", "b", "c", "d", "c"]
+val = l.pop(2)  # 2番目のデータを取り出して削除
+print(l)
+print(val)
+print()
+
+# 要素の挿入 insert()
+# 先頭に挿入
+sub1.insert(0, "体育")
+print(sub1)
+
+# 2番目に挿入
+sub1.insert(2, "美術")
+print(sub1)
+
+# 末尾に挿入
+sub1.insert(-1, "物理")
+print(sub1)
+print()
+
+# リストのソート sorted()
+# 元のリストを変更しない場合
+# 昇順にソート
+l = ["c", "f", "a", "e", "b"]
+print(sorted(l))
+
+# 逆順にソート
+print(sorted(l, reverse=True))
+print("元のリスト : ", l)
+
+# 大文字・小文字の区別
+l = ["Ac", "bA", "aB", "bc"]
+
+# 区別あり
+print(sorted(l))
+
+# 区別なし
+print(sorted(l, key=str.lower))
+print()
+
+# リストを変更する場合 sort()
+# 昇順にソート
+l = ["c", "f", "a", "e", "b"]
+l.sort()
+print(l)
+
+# 逆順にソート
+l = ["c", "f", "a", "e", "b"]
+l.sort(reverse=True)
+print(l)
+
+# 大文字・小文字の区別なし
+l = ["Ac", "bA", "aB", "bc"]
+l.sort(key=str.lower)
+print(l)
