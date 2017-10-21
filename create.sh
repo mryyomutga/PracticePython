@@ -1,0 +1,50 @@
+#/bin/sh
+#使用方法:カレントディレクトリにsrcディレクトリがあることを確認し
+# $ sh create.sh Sample
+# とスクリプトを実行するとsrc直下にSampleディレクトリとpracticeXX.pyが作成される
+
+orderDIR=$1
+#ディレクトリを指定しているかどうか
+if [ -z "$orderDIR" ];	then
+	echo "ERROR"
+	exit 1
+fi
+
+#検索ディレクトリ
+DIRPATH=./src/*/
+OLD_NAME=00
+for FILE in ${DIRPATH}*
+do
+	NAME=`echo ${FILE##*/practice} | grep -o '[0-9]*' `
+	if [ $NAME -gt $OLD_NAME ]; then
+		OLD_NAME=$NAME
+		pathNAME=$(dirname $FILE)
+	else
+		NAME=$OLD_NAME
+	fi
+done
+
+#新規作成するファイルのインデックスを作成
+NAME=$(expr $NAME + 1)
+fileNAME="/practice$NAME.py"
+
+#ファイル・ディレクトリ名確認
+echo "FILE  : ${fileNAME}"
+echo "DIR   : ${pathNAME}"
+
+orderDIR="./src/${orderDIR}"
+#要求ディレクトリの確認
+echo "ORDER : ${orderDIR}"
+
+#pathNAMEが要求ディレクトリであるかどうか
+if [ ${pathNAME} != ${orderDIR} ];	then
+	pathNAME=$orderDIR
+	mkdir $pathNAME
+fi
+
+#新規作成するファイルのパスの作成
+newFILE=$pathNAME$fileNAME
+echo "MAKE  : ${newFILE}"
+
+#ファイルの作成
+echo "# -*- coding:utf-8 -*-" | cat > "${newFILE}" 
