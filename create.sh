@@ -1,13 +1,30 @@
 #/bin/sh
-#使用方法:カレントディレクトリにsrcディレクトリがあることを確認し
+# 使用方法:カレントディレクトリにsrcディレクトリがあることを確認し
 # $ sh create.sh Sample
-# とスクリプトを実行するとsrc直下にSampleディレクトリとpracticeXX.pyが作成される
+# のようにスクリプトを実行するとsrc直下にSampleディレクトリとpracticeXX.pyが作成される
 
 orderDIR=$1
 #ディレクトリを指定しているかどうか
 if [ -z "$orderDIR" ];	then
-	echo "ERROR"
+	echo "ERROR : Argument(Directory) is NONE"
 	exit 1
+fi
+
+srcDIR=`ls | grep "src"`
+if [ -z ${srcDIR} ];	then
+	echo "\"src\" directory is not found."
+	echo "make \"src\" directory ? (yes/no)"
+	read ans
+
+	if [ $ans = "yes" ];	then
+		mkdir "src"
+	elif [ $ans = "y" ];	then
+		mkdir "src"
+	else
+		echo "ERROR : do\'nt exist \"src\" directory"
+		echo "        Please make \"src\" directory"
+		exit 1
+	fi
 fi
 
 #検索ディレクトリ
@@ -16,7 +33,10 @@ OLD_NAME=00
 for FILE in ${DIRPATH}*
 do
 	NAME=`echo ${FILE##*/practice} | grep -o '[0-9]*' `
-	if [ $NAME -gt $OLD_NAME ]; then
+	if [ -z $NAME ];	then
+		NAME=$OLD_NAME
+		break
+	elif [ $NAME -gt $OLD_NAME ]; then
 		OLD_NAME=$NAME
 		pathNAME=$(dirname $FILE)
 	else
