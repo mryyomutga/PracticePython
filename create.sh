@@ -4,7 +4,7 @@
 # のようにスクリプトを実行するとsrc直下にSampleディレクトリとpracticeXX.pyが作成される
 
 orderDIR=$1
-#ディレクトリを指定しているかどうか
+# ディレクトリを指定しているかどうか
 if [ -z "$orderDIR" ];	then
 	echo "ERROR : Argument(Directory) is NONE"
 	exit 1
@@ -27,7 +27,19 @@ if [ -z ${srcDIR} ];	then
 	fi
 fi
 
-#検索ディレクトリ
+# 要求ディレクトリの有無
+search=`ls ./src | grep -w $orderDIR`
+if [ -z ${search} ];	then
+	echo "Empty"
+	orderDIR="./src/${orderDIR}"
+	mkdir "${orderDIR}"
+fi	
+
+# 要求ディレクトリの確認
+orderDIR="./src/${orderDIR}"
+echo "ORDER : ${orderDIR}"
+
+# 検索ディレクトリ
 DIRPATH=./src/*/
 OLD_NAME=00
 for FILE in ${DIRPATH}*
@@ -44,27 +56,23 @@ do
 	fi
 done
 
-#新規作成するファイルのインデックスを作成
+# 新規作成するファイルのインデックスを作成
 NAME=$(expr $NAME + 1)
-fileNAME="/practice$NAME.py"
+fileNAME="practice$NAME.py"
 
-#ファイル・ディレクトリ名確認
+# ファイル・ディレクトリ名確認
 echo "FILE  : ${fileNAME}"
 echo "DIR   : ${pathNAME}"
 
-orderDIR="./src/${orderDIR}"
-#要求ディレクトリの確認
-echo "ORDER : ${orderDIR}"
-
-#pathNAMEが要求ディレクトリであるかどうか
+# pathNAMEが要求ディレクトリであるかどうか
 if [ ${pathNAME} != ${orderDIR} ];	then
 	pathNAME=$orderDIR
-	mkdir $pathNAME
 fi
 
-#新規作成するファイルのパスの作成
+# 新規作成するファイルのパスの作成
+fileNAME="/practice$NAME.py"
 newFILE=$pathNAME$fileNAME
 echo "MAKE  : ${newFILE}"
 
-#ファイルの作成
-echo "# -*- coding:utf-8 -*-" | cat > "${newFILE}" 
+# ファイルの作成
+echo "# -*- coding: utf-8 -*-" | cat > "${newFILE}" 
