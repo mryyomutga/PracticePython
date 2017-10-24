@@ -27,7 +27,6 @@ os.rmdir("dir_1")
 os.removedirs("dir_2/dir_3")
 
 os.mkdir("dir_1")
-os.mkdir("dir_2")
 
 shutil.copy("sample.txt", "test.txt")   # 単一コピー
 shutil.copytree("dir_1/", "dir_2/")     # ディレクトリ毎に再帰的コピー
