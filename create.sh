@@ -30,24 +30,24 @@ fi
 # 要求ディレクトリの有無
 search=`ls ./src | grep -w $orderDIR`
 if [ -z ${search} ];	then
-	echo "Empty"
+	echo "Not found target directory"
 	orderDIR="./src/${orderDIR}"
 	mkdir "${orderDIR}"
+else
+	orderDIR="./src/${orderDIR}"
 fi	
 
 # 要求ディレクトリの確認
-orderDIR="./src/${orderDIR}"
 echo "ORDER : ${orderDIR}"
 
 # 検索ディレクトリ
 DIRPATH=./src/*/
-OLD_NAME=00
+OLD_NAME=0
 for FILE in ${DIRPATH}*
 do
-	NAME=`echo ${FILE##*/practice} | grep -o '[0-9]*' `
+	NAME=`echo ${FILE#*/practice} | grep -o '[0-9]*' `
 	if [ -z $NAME ];	then
 		NAME=$OLD_NAME
-		break
 	elif [ $NAME -gt $OLD_NAME ]; then
 		OLD_NAME=$NAME
 		pathNAME=$(dirname $FILE)
