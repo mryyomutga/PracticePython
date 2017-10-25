@@ -10,27 +10,16 @@ if [ -z "$orderDIR" ];	then
 	exit 1
 fi
 
+var=0
 srcDIR=`ls | grep "src"`
 if [ -z ${srcDIR} ];	then
-	echo "\"src\" directory is not found."
-	echo "make \"src\" directory ? (yes/no)"
-	read ans
-
-	if [ $ans = "yes" ];	then
-		mkdir "src"
-	elif [ $ans = "y" ];	then
-		mkdir "src"
-	else
-		echo "ERROR : do\'nt exist \"src\" directory"
-		echo "        Please make \"src\" directory"
-		exit 1
-	fi
+	mkdir "src"
+	var=1
 fi
 
 # 要求ディレクトリの有無
 search=`ls ./src | grep -w $orderDIR`
 if [ -z ${search} ];	then
-	echo "Not found target directory"
 	orderDIR="./src/${orderDIR}"
 	mkdir "${orderDIR}"
 else
@@ -43,21 +32,27 @@ echo "ORDER : ${orderDIR}"
 # 検索ディレクトリ
 DIRPATH=./src/*/
 OLD_NAME=0
-for FILE in ${DIRPATH}*
-do
-	NAME=`echo ${FILE#*/practice} | grep -o '[0-9]*' `
-	if [ -z $NAME ];	then
-		NAME=$OLD_NAME
-	elif [ $NAME -gt $OLD_NAME ]; then
-		OLD_NAME=$NAME
-		pathNAME=$(dirname $FILE)
-	else
-		NAME=$OLD_NAME
-	fi
-done
+if [ $var -eq 1 ];	then
+	pathNAME=$orderDIR
+	NAME=1
+else
+	for FILE in ${DIRPATH}*
+	do
+		NAME=`echo ${FILE#*/practice} | grep -o '[0-9]*' `
+		if [ -z $NAME ];	then
+			NAME=$OLD_NAME
+		elif [ $NAME -gt $OLD_NAME ]; then
+			OLD_NAME=$NAME
+			pathNAME=$(dirname $FILE)
+		else
+			NAME=$OLD_NAME
+		fi
+	done
+	# 新規作成するファイルのインデックスを作成
+	NAME=$(expr $NAME + 1)
+fi
 
-# 新規作成するファイルのインデックスを作成
-NAME=$(expr $NAME + 1)
+# ファイル名の作成
 fileNAME="practice$NAME.py"
 
 # ファイル・ディレクトリ名確認
