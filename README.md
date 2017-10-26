@@ -81,3 +81,5 @@ $ cat src/test/practice1.py
 - 2017/10/25(Wed)　モジュールのimport・自作モジュールの作成
 - 2017/10/26(Thu)　標準ライブラリ(OrderedDict)
 - 2017/10/26(Thu)　標準ライブラリ(datetime, date, time)
+- 2017/10/26(Thu)　標準ライブラリ(json)
+- 2017/10/27(Fri)　標準ライブラリ(csv)
