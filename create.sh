@@ -1,10 +1,10 @@
 #/bin/sh
-# Žg—p•û–@:ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ÉsrcƒfƒBƒŒƒNƒgƒŠ‚ª‚ ‚é‚±‚Æ‚ðŠm”F‚µ
+# ä½¿ç”¨æ–¹æ³•:ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«srcãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã—
 # $ sh create.sh Sample
-# ‚Ì‚æ‚¤‚ÉƒXƒNƒŠƒvƒg‚ðŽÀs‚·‚é‚Æsrc’¼‰º‚ÉSampleƒfƒBƒŒƒNƒgƒŠ‚ÆpracticeXX.py‚ªì¬‚³‚ê‚é
+# ã®ã‚ˆã†ã«ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’å®Ÿè¡Œã™ã‚‹ã¨srcç›´ä¸‹ã«Sampleãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨practiceXX.pyãŒä½œæˆã•ã‚Œã‚‹
 
 orderDIR=$1
-# ƒfƒBƒŒƒNƒgƒŠ‚ðŽw’è‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+# ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
 if [ -z "$orderDIR" ];	then
 	echo "ERROR : Argument(Directory) is NONE"
 	exit 1
@@ -17,7 +17,7 @@ if [ -z ${srcDIR} ];	then
 	var=1
 fi
 
-# —v‹ƒfƒBƒŒƒNƒgƒŠ‚Ì—L–³
+# è¦æ±‚ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®æœ‰ç„¡
 search=`ls ./src | grep -w $orderDIR`
 if [ -z ${search} ];	then
 	orderDIR="./src/${orderDIR}"
@@ -26,10 +26,10 @@ else
 	orderDIR="./src/${orderDIR}"
 fi	
 
-# —v‹ƒfƒBƒŒƒNƒgƒŠ‚ÌŠm”F
+# è¦æ±‚ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç¢ºèª
 echo "ORDER : ${orderDIR}"
 
-# ŒŸõƒfƒBƒŒƒNƒgƒŠ
+# æ¤œç´¢ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 DIRPATH=./src/*/
 OLD_NAME=0
 if [ $var -eq 1 ];	then
@@ -48,26 +48,26 @@ else
 			NAME=$OLD_NAME
 		fi
 	done
-	# V‹Kì¬‚·‚éƒtƒ@ƒCƒ‹‚ÌƒCƒ“ƒfƒbƒNƒX‚ðì¬
+	# æ–°è¦ä½œæˆã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ä½œæˆ
 	NAME=$(expr $NAME + 1)
 fi
 
-# ƒtƒ@ƒCƒ‹–¼‚Ìì¬
+# ãƒ•ã‚¡ã‚¤ãƒ«åã®ä½œæˆ
 fileNAME="practice$NAME.py"
 
-# ƒtƒ@ƒCƒ‹EƒfƒBƒŒƒNƒgƒŠ–¼Šm”F
+# ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåç¢ºèª
 echo "FILE  : ${fileNAME}"
 echo "DIR   : ${pathNAME}"
 
-# pathNAME‚ª—v‹ƒfƒBƒŒƒNƒgƒŠ‚Å‚ ‚é‚©‚Ç‚¤‚©
+# pathNAMEãŒè¦æ±‚ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ã‚ã‚‹ã‹ã©ã†ã‹
 if [ ${pathNAME} != ${orderDIR} ];	then
 	pathNAME=$orderDIR
 fi
 
-# V‹Kì¬‚·‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX‚Ìì¬
+# æ–°è¦ä½œæˆã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã®ä½œæˆ
 fileNAME="/practice$NAME.py"
 newFILE=$pathNAME$fileNAME
 echo "MAKE  : ${newFILE}"
 
-# ƒtƒ@ƒCƒ‹‚Ìì¬
+# ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆ
 echo "# -*- coding: utf-8 -*-" | cat > "${newFILE}" 

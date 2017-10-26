@@ -1,7 +1,6 @@
 # PracticePython
 Pythonの練習
 
-
 ## 目的
 専門ゼミ・研究でPythonを使用する機会が多いため、自習したソースを管理する
 
