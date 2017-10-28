@@ -6,12 +6,14 @@ Pythonの練習
 
 Pythonの文法確認のために自分専用のWikiを作成する
 
-学習に利用するサイト
-
-- [Python学習講座](http://www.python.ambitious-engineer.com/)
+### 参考資料
+- 教科書
+    - 実践力を身につけるPythonの教科書
+- webサイト
+    - [Python学習講座](http://www.python.ambitious-engineer.com/)
 
 ## 後回し
-lambda式・関数デコレータ・関数アノテーションは必要に応じて学習  
+lambda式・関数デコレータ・関数アノテーションは必要に応じて学習
 
 ### create.shについて
 #### 要望
@@ -42,7 +44,7 @@ $ sh create.sh test
   MAKE  : ./src/test/practice1.py
 ```
 
-実行後、以下のようなディレクトリが新規作成される(src、testディレクトリがない場合)  
+実行後、以下のようなディレクトリが新規作成される(src、testディレクトリがない場合)
 testディレクトリ配下にpractice1.pyが作成される
 
 ```
@@ -60,26 +62,45 @@ $ cat src/test/practice1.py
 ```
 
 ## 更新情報
-- 2017/10/17(Tue)　変数・文字列・リスト
-- 2017/10/17(Tue)　タプル・辞書
-- 2017/10/17(Tue)　if-elif-else文
-- 2017/10/19(Thu)　for-else文・set型・オブジェクトのID
-- 2017/10/19(Thu)　while-else文・pass
-- 2017/10/19(Thu)　関数の定義
-- 2017/10/19(Thu)　global宣言・関数オブジェクト・内部関数・nonlocal宣言
-- 2017/10/19(Thu)　ジェネレータ
-- 2017/10/21(Sat)　クラスの定義・クラスオブジェクト・クラス変数
-- 2017/10/21(Sat)　新規作成のためのシェルスクリプトの作成
-- 2017/10/21(Sat)　クラスメソッド・スタティックメソッド
-- 2017/10/22(Sun)　クラスの継承
-- 2017/10/22(Sun)　プライベートメンバ
-- 2017/10/22(Sun)　例外処理
-- 2017/10/22(Sun)　シェルスクリプトの修正
-- 2017/10/24(Tue)　ファイルの入出力
-- 2017/10/24(Tue)　ファイル・ディレクトリの存在確認・作成・削除
-- 2017/10/25(Wed)　文字列の基本的な操作・変換・フォーマット
-- 2017/10/25(Wed)　モジュールのimport・自作モジュールの作成
-- 2017/10/26(Thu)　標準ライブラリ(OrderedDict)
-- 2017/10/26(Thu)　標準ライブラリ(datetime, date, time)
-- 2017/10/26(Thu)　標準ライブラリ(json)
-- 2017/10/27(Fri)　標準ライブラリ(csv)
+<table width=800>
+    <tr>
+        <th width=100 align="center">Date</th>
+        <th width=700 align="left">Activity</th>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/17(Tue)</td>
+        <td width=700>変数・文字列・リスト・タプル・辞書<br>if-elif-else文</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/19(Thu)</td>
+        <td width=700>for-else文・set型・オブジェクトのID<br>while-else文・pass<br>関数の定義・global宣言・関数オブジェクト<br>内部関数・nonlocal宣言<br>ジェネレータ</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/21(Sat)</td>
+        <td width=700>クラスの定義・クラスオブジェクト・クラス変数<br>クラスメソッド・スタティックメソッド<br>新規作成のためのシェルスクリプトの作成</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/22(Sun)</td>
+        <td width=700>クラスの継承<br>プライベートメンバ<br>例外処理<br>シェルスクリプトの修正</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/24(Tue)</td>
+        <td width=700>ファイルの入出力<br>ファイル・ディレクトリの存在確認・作成・削除</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/25(Wed)</td>
+        <td width=700>文字列の基本的な操作・変換・フォーマット<br>モジュールのimport・自作モジュールの作成</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/26(Thu)</td>
+        <td width=700>標準ライブラリ(OrderedDict)<br>標準ライブラリ(datetime, date, time)<br>標準ライブラリ(json)</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/27(Fri)</td>
+        <td width=700>標準ライブラリ(csv)<br>標準ライブラリ(copy)</td>
+    </tr>
+    <tr>
+        <td width=100 align=center>2017/10/28(Sat)</td>
+        <td width=700>ログ出力(logging, logger)<br>組み込み関数(map,filter,zip,reduce)<br>[Python学習講座] 入門編 終了</td>
+    </tr>
+</table>
