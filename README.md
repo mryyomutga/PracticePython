@@ -31,8 +31,6 @@ lambda式・関数デコレータ・関数アノテーションは必要に応�
 - src配下には引数で指定した名前でディレクトリを自動で作成する
 - 指定したディレクトリにpracticeXX.pyというファイル名が作成される(XXは連番)
 
-    ※スクリプトには`ls`や`cat`コマンドなどが使用されているため、Windowsで使用する場合、CygwinなどUnixライクな環境がインストールされていない場合、実行できない可能性があります
-
 #### 実行方法
 以下のコマンドを入力する(testディレクトリにファイルを作成したい場合)
 
@@ -60,6 +58,26 @@ practice1.pyには以下のコメントが自動的に記述される
 $ cat src/test/practice1.py
   # -*- coding: utf-8 -*-
 ```
+
+### 追記(2017/10/28)
+- シェルスクリプトを変更しました。
+
+    BASE_PROG.pyには以下の2文が記述されており、これを新規作成されたファイルに書き込みます
+    書き込む内容を変更する場合はBASE_PROG.pyを変更してください
+    ```python
+    # -*- coding: utf-8 -*-
+    from __future__ import print_function
+    ```
+
+- 実行方法を変更しました
+
+    Foundationディレクトリのtestディレクトリに作成する場合、以下のコマンドを実行してください
+    ```sh
+    sh create.sh Foundation/test
+    ```
+    `sh create.sh src直下のディレクトリ/ファイルを新規作成するディレクトリ`のように実行してください
+
+    `src/directory/`には作成されないので注意してください
 
 ## 更新情報
 <table width=800>
@@ -101,6 +119,6 @@ $ cat src/test/practice1.py
     </tr>
     <tr>
         <td width=100 align=center>2017/10/28(Sat)</td>
-        <td width=700>ログ出力(logging, logger)<br>組み込み関数(map,filter,zip,reduce)<br>[Python学習講座] 入門編 終了</td>
+        <td width=700>ログ出力(logging, logger)<br>組み込み関数(map,filter,zip,reduce)<br>シェルスクリプトの修正<br>[Python学習講座] 入門編 終了</td>
     </tr>
 </table>

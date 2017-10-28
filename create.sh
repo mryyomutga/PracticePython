@@ -17,22 +17,26 @@ if [ -z ${srcDIR} ];	then
 	var=1
 fi
 
+BASEDIR=${orderDIR%%/*}
+# echo $BASEDIR
+
 # 要求ディレクトリの有無
 search=`ls ./src | grep -w $orderDIR`
 if [ -z ${search} ];	then
 	orderDIR="./src/${orderDIR}"
-	mkdir "${orderDIR}"
+	mkdir -p "${orderDIR}"
 else
 	orderDIR="./src/${orderDIR}"
-fi	
+fi
 
 # 要求ディレクトリの確認
 echo "ORDER : ${orderDIR}"
 
 # 検索ディレクトリ
-DIRPATH=./src/*/
+# DIRPATHの/*/*/はsrcディレクトリ以下のディレクトリの深さに応じて追加する
+DIRPATH=./src/${BASEDIR}/*/
 OLD_NAME=0
-if [ $var -eq 1 ];	then
+if [ $var -eq 1 ] || [ "$(ls ${orderDIR})" == '' ];	then
 	pathNAME=$orderDIR
 	NAME=1
 else
@@ -70,4 +74,5 @@ newFILE=$pathNAME$fileNAME
 echo "MAKE  : ${newFILE}"
 
 # ファイルの作成
-echo "# -*- coding: utf-8 -*-" | cat > "${newFILE}" 
+#echo "# -*- coding: utf-8 -*-" | cat > "${newFILE}"
+cat < "BASE_PROG.py" > "${newFILE}"
