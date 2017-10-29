@@ -7,10 +7,8 @@ Pythonの練習
 Pythonの文法確認のために自分専用のWikiを作成する
 
 ### 参考資料
-- 教科書
-    - 実践力を身につけるPythonの教科書
-- webサイト
-    - [Python学習講座](http://www.python.ambitious-engineer.com/)
+
+- [Python学習講座](http://www.python.ambitious-engineer.com/)
 
 ## 後回し
 lambda式・関数デコレータ・関数アノテーションは必要に応じて学習
@@ -63,6 +61,7 @@ $ cat src/test/practice1.py
 - シェルスクリプトを変更しました。
 
     BASE_PROG.pyには以下の2文が記述されており、これを新規作成されたファイルに書き込みます
+
     書き込む内容を変更する場合はBASE_PROG.pyを変更してください
     ```python
     # -*- coding: utf-8 -*-
